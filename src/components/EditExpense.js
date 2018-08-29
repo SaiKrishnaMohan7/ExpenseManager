@@ -1,8 +1,9 @@
 import React from 'react';
 
-const EditExpense = () => {
+const EditExpense = (props) => {
+    // url is dynamic and the dynamic can be accessed via props.match.params and key-value obj
     return (
-        <p>From Edit Expense</p>
+        <p>Editing Expense {props.match.params.id}</p>
     );
 };
 
