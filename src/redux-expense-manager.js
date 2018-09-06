@@ -64,7 +64,7 @@ const sortByDate = () => {
 };
 
 // SET_START_DATE
-const setStartDate = (startDate) => {
+const setStartDate = (startDate = undefined) => {
 	return {
 		type: 'SET_START_DATE',
 		startDate
@@ -72,9 +72,9 @@ const setStartDate = (startDate) => {
 };
 
 // SET_END_DATE
-const setEndDate = (endDate) => {
+const setEndDate = (endDate = undefined) => {
 	return {
-		type: 'SET_END_DATE',
+		type: 'SET_START_DATE',
 		endDate
 	};
 };
@@ -131,7 +131,7 @@ const filtersReducer = (state = filtersReducerDefault, action) => {
 					return {...state, startDate: action.startDate};
 
 				case 'SET_END_DATE':
-					return {...state, endDate: action.endDate};
+					return {...state, endDate: action.setEndDate};
 
         default: return state;
     }
