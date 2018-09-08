@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import 'normalize.css/normalize.css';
 
 import AppRouter from './routers/AppRouter';
@@ -29,4 +30,10 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log(store.getState());
 console.log(visibleExpenses);
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+const app = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+  );
+
+ReactDOM.render(app, document.getElementById('root'));
