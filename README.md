@@ -7,6 +7,7 @@ A react app to understand Front-End routing
 - React
 - React DOM
 - React Router Dom
+- React-Redux
 - React Modal
 - yarn
 - Styles
@@ -19,10 +20,11 @@ A react app to understand Front-End routing
   - cli
   - core
   - loader
-  - plugin: transform-class-properties
+  - plugins: transform-class-properties, transform-object-rest-spread
   - presets: env, react
 - Webpack
   - cli
   - dev-server
+  - source maps
 - Git Submodule
   - Notes
