@@ -1,21 +1,30 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
+
+import ExpenseListItem from './ExpenseListItem'
+import expensesSelector from './../selectors/expensesSelector';
 
 const ExpenseList = (props) => {
   return (
     <div>
       <h2>Expense List</h2>
-        {props.expenses.length}
-        {props.filters.text}
+        {
+          props.expenses.map((expense) => {
+            // By using spread operator here, the component will have access ot properties on props as opposed to props.expense if
+            // we did this: expense={expense}
+            return (
+              <ExpenseListItem {...expense } />
+            );
+          })
+        }
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
+  // To make sure filters get applied when user selects a filter
   return {
-    expenses: state.expenses,
-    filters: state.filters
+    expenses: expensesSelector(state.expenses, state.filters)
   };
 };
 
