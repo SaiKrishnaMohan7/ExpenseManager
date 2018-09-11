@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import { connect } from 'react-redux';
 
-import removeExpense from '../actions/expensesActionGen';
+import {removeExpense} from '../actions/expensesActionGen';
 
 const ExpenseListItem = ({id, description, amount, createdAt, dispatch}) => {
   return (
