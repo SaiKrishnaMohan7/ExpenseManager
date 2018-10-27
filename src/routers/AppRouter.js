@@ -11,17 +11,17 @@ import NotFound from './../components/NotFound';
 const AppRouter = () => {
     // React router only passes routes to components that are rendered by routes, so Header won't get it
     return (
-        <BrowserRouter>
-        <Fragment>
-            <Header />
-            <Switch>
-                <Route exact={true} path="/" component={Dashboard} />
-                <Route path="/create" component={AddExpense}/>
-                <Route path="/edit/:id" component={EditExpense} />
-                <Route path="/help" component={Help} />
-                <Route component={NotFound} />
-            </Switch>
-        </Fragment>
+		<BrowserRouter>
+			<Fragment>
+				<Header />
+				<Switch>
+						<Route exact={true} path="/" component={Dashboard} />
+						<Route path="/create" component={AddExpense}/>
+						<Route path="/edit/:id" component={EditExpense} />
+						<Route path="/help" component={Help} />
+						<Route component={NotFound} />
+				</Switch>
+			</Fragment>
     </BrowserRouter>
     );
 }
