@@ -14,7 +14,8 @@ import {
 } from './actions/filtersActionGen'
 import getVisibleExpenses from './selectors/expensesSelector';
 import storeCreator from './store/storeCreator';
-import './styles/styles.scss'
+import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = storeCreator();
 
@@ -28,8 +29,8 @@ const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
 // console.log(`this is the default state ${state}`);
-console.log(store.getState());
-console.log(visibleExpenses);
+// console.log(store.getState());
+// console.log(visibleExpenses);
 
 const app = (
   <Provider store={store}>
