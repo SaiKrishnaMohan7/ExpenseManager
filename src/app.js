@@ -4,7 +4,11 @@ import {Provider} from 'react-redux';
 import 'normalize.css/normalize.css';
 
 import AppRouter from './routers/AppRouter';
-import {addExpense, removeExpense, editExpense} from './actions/expensesActionGen';
+import {
+  addExpense,
+  removeExpense,
+  editExpense
+} from './actions/expensesActionGen';
 import {
   setTextFilter,
   sortByAmount,
