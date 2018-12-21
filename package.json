@@ -5,7 +5,8 @@
   "scripts": {
     "build": "webpack",
     "dev-server": "webpack-dev-server",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test:watch": "jest --watch"
   },
   "main": "index.js",
   "license": "MIT",
