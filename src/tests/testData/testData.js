@@ -21,3 +21,10 @@ export const expenses = [{
   amount: 587,
   createdAt: moment(0).add(4, 'days').valueOf(),
 }];
+
+export const filtersReducerDefault = {
+  text: '',
+  sortBy: 'date',
+  startDate: moment().startOf('month'),
+  endDate: moment().endOf('month'),
+};
