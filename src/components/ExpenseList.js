@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import ExpenseListItem from './ExpenseListItem'
 import expensesSelector from './../selectors/expensesSelector';
 
-const ExpenseList = (props) => {
+export const ExpenseList = (props) => {
   return (
     <div>
       <h2>Expense List</h2>
@@ -13,7 +13,7 @@ const ExpenseList = (props) => {
             // By using spread operator here, the component will have access ot properties on props as opposed to props.expense if
             // we did this: expense={expense}
             return (
-              <ExpenseListItem {...expense } />
+              <ExpenseListItem key={expense.id} {...expense } />
             );
           })
         }
