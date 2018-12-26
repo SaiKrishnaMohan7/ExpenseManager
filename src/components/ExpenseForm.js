@@ -52,7 +52,7 @@ export default class ExpenseForm extends React.Component{
     const { amount, description, createdAt, note } = this.state;
     e.preventDefault();
     if (!(amount && description)) {
-      this.setState({ error:  'Both amount and description are required' });
+      this.setState({ error: 'Both amount and description are required' });
     } else {
       const { onSubmit } = this.props;
 
