@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expensesActionGen';
 
-// props get passed in, destructure dispatch, history
-const AddExpense = ({ dispatch, history }) => {
-	return (
-		<div>
-				<h1>Add Expense</h1>
-				<ExpenseForm
-					onSubmit={(newExpense) => {
-							dispatch(addExpense(newExpense));
-							// Route to dashboard page after item is added
-							history.push('/');
-						}
-					}
-				/>
-		</div>        
-	);
+export class AddExpense extends Component {
+	onSubmit = (newExpense) => {
+		this.props.addExpense(addExpense(newExpense));
+		// Route to dashboard page after item is added
+		this.props.history.push('/');
+	}
+
+	render() {
+		return (
+			<div>
+					<h1>Add Expense</h1>
+					<ExpenseForm
+						onSubmit={this.onSubmit}
+					/>
+			</div>        
+		);
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addExpense: (expense) => {
+			dispatch(addExpense(expense));
+		}
+	};
 };
 
-export default connect()(AddExpense);
+export default connect(undefined, mapDispatchToProps)(AddExpense);
