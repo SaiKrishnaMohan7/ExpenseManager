@@ -1,30 +1,38 @@
-import React from 'react';
+import React, { Component }from 'react';
 import { connect } from 'react-redux';
 
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expensesActionGen';
 
-const EditExpense = ({dispatch, history, expense}) => {
-	const { id } = expense;
-	// url is dynamic and the dynamic part can be accessed via props.match.params and key-value obj
+export class EditExpense extends Component {
+	render() {
+		const {
+			editExpense,
+			removeExpense,
+			history,
+			expense,
+		} = this.props;
+		const { id } = expense;
+		// url is dynamic and the dynamic part can be accessed via props.match.params and key-value obj
 	return (
 		<div>
 			<ExpenseForm
 				expense={expense}
 				onSubmit={(updatedExpense) => {
-					dispatch(editExpense(id, updatedExpense));
+					editExpense(id, updatedExpense);
 					history.push('/');
 				}}
 			/>
 			<button onClick={() => {
-				dispatch(removeExpense({id}));
+				removeExpense({id});
 				history.push('/');
 			}}>
         Remove
       </button>
 		</div>
 	);
-};
+	}
+}
 
 const mapStateToProps = (state, props) => {
 	const {match: {params: {id}}} = props;
@@ -33,4 +41,11 @@ const mapStateToProps = (state, props) => {
 	};
 };
 
-export default connect(mapStateToProps)(EditExpense);
+const mapDispatchToProps = () => {
+	return {
+		editExpense: () => (dispatch(editExpense(id, updatedExpense))),
+		removeExpense: () => (dispatch(removeExpense({id})))
+	}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditExpense);
