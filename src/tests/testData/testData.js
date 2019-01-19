@@ -28,3 +28,17 @@ export const filtersReducerDefault = {
   startDate: moment().startOf('month'),
   endDate: moment().endOf('month'),
 };
+
+export const testFiltersDefault = {
+  text: '',
+  sortBy: 'date',
+  startDate: undefined,
+  endDate: undefined,
+};
+
+export const testFilters = {
+  text: 'bought',
+  sortBy: 'amount',
+  startDate: moment(0),
+  endDate: moment(0).add(3),
+};
