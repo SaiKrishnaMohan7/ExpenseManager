@@ -1,5 +1,15 @@
+# editor config
 .vscode
+
+# Node Modules
 node_modules/
+
+# Log files
 *.log
+
+# Mac stuff
 .DS_Store
-public
+
+# Build dir
+public/bundle.js
+public/styles.css
