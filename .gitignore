@@ -11,5 +11,4 @@ node_modules/
 .DS_Store
 
 # Build dir
-public/bundle.js
-public/styles.css
+public/dist
