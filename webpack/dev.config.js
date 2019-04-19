@@ -15,5 +15,5 @@ module.exports = merge(baseConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
 });
