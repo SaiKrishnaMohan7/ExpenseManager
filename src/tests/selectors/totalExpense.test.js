@@ -2,7 +2,7 @@ import totalExpense from './../../selectors/totalExpense';
 import { expenses } from '../testData/testData';
 
 test('should return the total of all expenses', () => {
-  expect(totalExpense(expenses)).toEqual(20592);
+  expect(totalExpense(expenses)).toEqual(2000592);
 });
 
 test('should return 0 if expenses arr empty', () => {
@@ -18,5 +18,5 @@ test('should return 0 if expenses arr undefined', () => {
 });
 
 test('should return amount of one expense ir arr length is 1', () => {
-  expect(totalExpense([expenses[0]])).toEqual(20000);
+  expect(totalExpense([expenses[0]])).toEqual(2000000);
 });

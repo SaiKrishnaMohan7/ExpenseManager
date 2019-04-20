@@ -41,10 +41,10 @@ const mapStateToProps = (state, props) => {
 	};
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = dispatch => {
 	return {
-		editExpense: () => (dispatch(editExpense(id, updatedExpense))),
-		removeExpense: () => (dispatch(removeExpense({id})))
+		editExpense: (id, updatedExpense) => (dispatch(editExpense(id, updatedExpense))),
+		removeExpense: (data) => (dispatch(removeExpense(data)))
 	}
 };
 

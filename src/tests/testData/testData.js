@@ -4,7 +4,7 @@ export const expenses = [{
   id: '1',
   description: 'car',
   note: 'bought a car',
-  amount: 20000,
+  amount: 2000000,
   createdAt: 0 ,
 },
 {

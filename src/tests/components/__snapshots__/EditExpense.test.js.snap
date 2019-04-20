@@ -5,7 +5,7 @@ exports[`Edit Expense Component should match snapshot 1`] = `
   <ExpenseForm
     expense={
       Object {
-        "amount": 20000,
+        "amount": 2000000,
         "createdAt": 0,
         "description": "car",
         "id": "1",

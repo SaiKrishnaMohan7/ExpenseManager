@@ -6,7 +6,7 @@ import { addExpense } from '../actions/expensesActionGen';
 
 export class AddExpense extends Component {
 	onSubmit = (newExpense) => {
-		this.props.addExpense(addExpense(newExpense));
+		this.props.addExpense(newExpense);
 		// Route to dashboard page after item is added
 		this.props.history.push('/');
 	}

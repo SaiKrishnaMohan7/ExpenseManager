@@ -7,12 +7,12 @@ export default class ExpenseForm extends React.Component{
     super(props);
 
     this.state = {
-      amount: props.expense ? props.expense.amount.toString() : '',
+      amount: props.expense ? (props.expense.amount / 100).toString() : '',
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       description: props.expense ? props.expense.description : '',
+      note: props.expense ? props.expense.note : '',
       focused: false,
       error: '',
-      note: props.expense ? props.expense.note : ''
     };
   }
 
@@ -58,7 +58,7 @@ export default class ExpenseForm extends React.Component{
 
       this.setState({ error: '' });
       onSubmit({
-        amount: parseFloat(amount, 10),
+        amount: parseFloat(amount, 10) * 100,
         createdAt: createdAt.valueOf(),
         description,
         note 
