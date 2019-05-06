@@ -4,37 +4,11 @@ import {Provider} from 'react-redux';
 import 'normalize.css/normalize.css';
 
 import AppRouter from './routers/AppRouter';
-import {
-  addExpense,
-  removeExpense,
-  editExpense
-} from './actions/expensesActionGen';
-import {
-  setTextFilter,
-  sortByAmount,
-  sortByDate,
-  setStartDate,
-  setEndDate
-} from './actions/filtersActionGen'
-import getVisibleExpenses from './selectors/expensesSelector';
 import storeCreator from './store/storeCreator';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
 const store = storeCreator();
-
-store.dispatch(addExpense({description: 'Water Bill', amount: 20000, createdAt: 11000}));
-store.dispatch(addExpense({description: 'Gas Bill', amount: 25000, createdAt: 3176000}));
-store.dispatch(addExpense({description: 'Rent', amount: 1174000, createdAt: 314000}));
-
-// store.dispatch(setTextFilter('bill'));
-
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-
-// console.log(`this is the default state ${state}`);
-// console.log(store.getState());
-// console.log(visibleExpenses);
 
 const app = (
   <Provider store={store}>
