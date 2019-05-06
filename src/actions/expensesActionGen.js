@@ -9,7 +9,7 @@ export const addExpense = expense => {
 };
 
 // TODO: Refactor this to indicate begining and ending of the save and load processes
-// since the function gets called with dispatch, because of redux-thunk, it is possible to fire off loadActions
+// since the function gets called with dispatch, because of mapDispatchToProps, it is possible to fire off loadActions
 export const startAddExpense = (expenseData = {}) => {
 	return (dispatch) => {
 		const {
