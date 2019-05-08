@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import ExpenseListItem from './ExpenseListItem'
-import expensesSelector from '../selectors/expensesSelector';
+import getVisibleExpenses from '../selectors/expensesSelector';
 
 export const ExpenseList = (props) => {
   return (
@@ -24,7 +24,7 @@ export const ExpenseList = (props) => {
 const mapStateToProps = (state) => {
   // To make sure filters get applied when user selects a filter
   return {
-    expenses: expensesSelector(state.expenses, state.filters)
+    expenses: getVisibleExpenses(state.expenses.expenses, state.filters)
   };
 };
 

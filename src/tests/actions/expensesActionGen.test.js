@@ -1,4 +1,4 @@
-import { addExpense, editExpense, removeExpense } from './../../actions/expensesActionGen';
+import { addExpenseToUi, editExpense, removeExpense } from './../../actions/expensesActionGen';
 
 test('should setup remove expense action object', () => {
   const action = removeExpense({ id: '123abc' });
@@ -24,7 +24,7 @@ test('should setup add expense action object when values supplied', () => {
     amount: 200,
     createdAt: 1234567890
   };
-  const action = addExpense({
+  const action = addExpenseToUi({
     ...expenseData
   });
 
@@ -39,7 +39,7 @@ test('should setup add expense action object when values supplied', () => {
 
 test('should setup add expense action object with default values', () => {
   const expenseData = {};
-  const action = addExpense({
+  const action = addExpenseToUi({
     ...expenseData
   });
 
