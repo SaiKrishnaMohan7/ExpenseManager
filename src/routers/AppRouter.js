@@ -8,6 +8,7 @@ import Header from './../components/Header';
 import Help from './../components/Help';
 import NotFound from './../components/NotFound';
 
+// TODO: Refactor components to reflect changing save state
 const AppRouter = () => {
     // React router only passes routes to components that are rendered by routes, so Header won't get it
     return (

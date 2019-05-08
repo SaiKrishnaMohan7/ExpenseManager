@@ -7,14 +7,14 @@ export const setTextFilter = (text = '') => {
 export const sortByAmount = () => {
 return {
   type: 'SORT_BY_AMOUNT'
-};
+  };
 };
 
 // SORT_BY_DATE
 export const sortByDate = () => {
 return {
   type: 'SORT_BY_DATE'
-};
+  };
 };
 
 // SET_START_DATE
@@ -22,7 +22,7 @@ export const setStartDate = (startDate = undefined) => {
 return {
   type: 'SET_START_DATE',
   startDate
-};
+  };
 };
 
 // SET_END_DATE
@@ -30,5 +30,5 @@ export const setEndDate = (endDate = undefined) => {
 return {
   type: 'SET_END_DATE',
   endDate
-};
+  };
 };

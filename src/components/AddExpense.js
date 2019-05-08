@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ExpenseForm from './ExpenseForm';
-import { addExpense } from '../actions/expensesActionGen';
+import { addExpenseToDb } from '../actions/expensesActionGen';
 
 export class AddExpense extends Component {
 	onSubmit = (newExpense) => {
-		this.props.addExpense(newExpense);
+		this.props.addExpenseToDb(newExpense);
 		// Route to dashboard page after item is added
 		this.props.history.push('/');
 	}
@@ -25,8 +25,8 @@ export class AddExpense extends Component {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addExpense: (expense) => {
-			dispatch(addExpense(expense));
+		addExpenseToDb: (expense) => {
+			dispatch(addExpenseToDb(expense));
 		}
 	};
 };
