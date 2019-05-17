@@ -7,7 +7,7 @@ const endSaveProcess = () => ({ type: 'END_SAVE_PROCESS' });
 const errorSaving = error => ({ type: 'SAVE_ERROR', error });
 
 // ADD_EXPENSE
-const addExpenseToUi = expense => {
+export const addExpenseToUi = expense => {
 	return {
 		type: 'ADD_EXPENSE',
 		expense,
