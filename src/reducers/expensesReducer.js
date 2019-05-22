@@ -2,6 +2,7 @@
 const expensesReducerDefault = {
 	error: false,
 	saving: false,
+	loading: false,
 	expenses: [],
 };
 const expensesReducer = (state = expensesReducerDefault, action) => {
@@ -40,6 +41,24 @@ const expensesReducer = (state = expensesReducerDefault, action) => {
 			};
 
 		case 'SAVE_ERROR':
+			return {
+				...state,
+				error: true,
+			};
+
+		case 'START_FETCH':
+			return {
+				...state,
+				loading: true,
+			};
+
+		case 'FETCH_SUCCESS':
+			return {
+				...state,
+				expenses: action.expenses,
+			};
+
+		case 'FETCH_ERROR':
 			return {
 				...state,
 				error: true,

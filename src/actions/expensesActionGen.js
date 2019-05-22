@@ -6,8 +6,14 @@ const endSaveProcess = () => ({ type: 'END_SAVE_PROCESS' });
 
 const errorSaving = error => ({ type: 'SAVE_ERROR', error });
 
+const startFetch = () => ({ type: 'START_FETCH' });
+
+const fetchSuccess = expenses => ({ type: 'FETCH_SUCCESS', expenses });
+
+const errorFetching = error => ({ type: 'FETCH_ERROR', error });
+
 // ADD_EXPENSE
-const addExpenseToUi = expense => {
+export const addExpenseToUi = expense => {
 	return {
 		type: 'ADD_EXPENSE',
 		expense,
@@ -34,7 +40,7 @@ export const addExpenseToDb = (expense = {}) => {
 			createdAt
 		}
 
-		database.ref('expenses').push(expense).then(ref => {
+		return database.ref('expenses').push(expense).then(ref => {
 			dispatch(addExpenseToUi({
 				id: ref.key,
 				...expenseData,
@@ -60,3 +66,24 @@ export const editExpense = (id, updates) => {
 		updates
 	}
 };
+
+// FETCH_EXPENSES
+export const fetchExpenses = () => {
+	return dispatch => {
+		dispatch(startFetch());
+
+		return database.ref('expenses').once('value').then(snapshot => {
+			const expenses = [];
+			if(!snapshot) {
+				dispatch(errorFetching({ error: 'Error Fetching Expenses' }));
+			}
+			snapshot.forEach(childSnapshot => {
+				expenses.push({
+					id: childSnapshot.key,
+					...childSnapshot.val(),
+				});
+			});
+			dispatch(fetchSuccess(expenses));
+		});
+	};
+}
