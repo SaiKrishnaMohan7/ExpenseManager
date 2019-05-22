@@ -46,5 +46,6 @@ test('Should add expense defaults to db and store', async () => {
   const result = await store.dispatch(addExpenseToDb(expenses[1]));
   const actions = store.getActions();
 
+  expect(result).toBeFalsy();
   expect(actions[0]).toEqual({ type: 'START_SAVE_PROCESS' });
 });

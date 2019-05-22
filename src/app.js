@@ -5,6 +5,7 @@ import 'normalize.css/normalize.css';
 
 import AppRouter from './routers/AppRouter';
 import storeCreator from './store/storeCreator';
+import { fetchExpenses } from './actions/expensesActionGen';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -16,4 +17,8 @@ const app = (
   </Provider>
   );
 
-ReactDOM.render(app, document.getElementById('root'));
+// Alternative to Container components and fucntional components
+store.dispatch(fetchExpenses()).then(() => {
+  ReactDOM.render(app, document.getElementById('root'));
+});
+
